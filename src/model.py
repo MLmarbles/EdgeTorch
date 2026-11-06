@@ -20,6 +20,7 @@ class SpeechCNN(nn.Module):
             nn.Flatten(),
             nn.Linear(32 * 4 * 4, 64),
             nn.ReLU(),
+            nn.Dropout(p=0.2),
             nn.Linear(64, 8),
         )
 

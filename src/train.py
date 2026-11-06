@@ -42,7 +42,11 @@ train_loader = make_loader("train", shuffle=True)
 val_loader = make_loader("val", shuffle=False)
 
 loss_fn = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+optimizer = torch.optim.SGD(
+    model.parameters(),
+    lr=0.01,
+    momentum=0.9
+)
 
 Path("models").mkdir(exist_ok=True)
 best_val_accuracy = 0.0
@@ -100,6 +104,6 @@ for epoch in range(1, 31):
 
     if val_accuracy > best_val_accuracy:
         best_val_accuracy = val_accuracy
-        torch.save(model.state_dict(), "models/best_model.pt")
+        torch.save(model.state_dict(), "models/best_model_sgd_dropout.pt")
 
 print(f"Best validation accuracy: {best_val_accuracy:.1%}")

@@ -40,7 +40,7 @@ test_loader = make_loader("test", shuffle=False)
 
 model.load_state_dict(
     torch.load(
-        "models/best_model.pt",
+        "models/best_model_sgd_dropout.pt",
         map_location=device,
         weights_only=True
     )
