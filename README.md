@@ -133,7 +133,7 @@ Median latency: 0.522 ms
 Min latency: 0.417 ms
 Max latency: 1.148 ms
 
-## Inference speed with ONNX
+## Inference speed with ONNX FP32
 Max output difference: 0.00000191
 
 Mean latency: 0.131 ms
@@ -143,3 +143,34 @@ Max latency: 1.452 ms
 
 comment: with ONNX we can see a huge increase in performance
 with the same trained model by using optimized kernels
+
+## Quantisation results
+21K models/speech_cnn.onnx
+154K models/speech_cnn.onnx.data
+70K models/speech_cnn_int8.onnx
+
+comment: INT8 quantisation worked fantastic with a 2.5x reduction in 
+size compared to the FP32 model. Though it can be noted that the model
+is not exactly 4x smaller due to some operations and metadata
+requiring additional storage
+
+## Inference speed with ONNX INT8
+(200 sample calibration)
+Mean latency: 0.234 ms
+Median latency: 0.212 ms
+Min latency: 0.187 ms
+Max latency: 1.570 ms
+
+(1000 sample calibration)
+Mean latency: 0.235 ms
+Median latency: 0.214 ms
+Min latency: 0.187 ms
+Max latency: 0.693 ms
+
+## FP32 vs INT8 (200 sample calibration) ONNX accuracy
+ONNX FP32: 88.40%
+ONNX INT8: 86.00%
+Samples evaluated: 836
+
+### INT8 (1000 sample calibration)
+ONNX INT8: 86.60%

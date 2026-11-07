@@ -16,7 +16,7 @@ options.inter_op_num_threads = 1
 options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
 
 session = ort.InferenceSession(
-    "models/speech_cnn.onnx",
+    "models/speech_cnn_int8_1000.onnx",
     sess_options=options,
     providers=["CPUExecutionProvider"]
 )
