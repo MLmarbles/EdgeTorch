@@ -174,3 +174,24 @@ Samples evaluated: 836
 
 ### INT8 (1000 sample calibration)
 ONNX INT8: 86.60%
+
+## confusion matrix results
+FP32 accuracy: 88.40%
+down: 84/95 correct
+go: 82/109 correct
+left: 108/113 correct
+no: 93/105 correct
+right: 98/110 correct
+stop: 86/100 correct
+up: 101/109 correct
+yes: 87/95 correct
+
+INT8 accuracy: 86.60%
+down: 84/95 correct
+go: 71/109 correct
+left: 106/113 correct
+no: 98/105 correct
+right: 98/110 correct
+stop: 84/100 correct
+up: 97/109 correct
+yes: 86/95 correct
